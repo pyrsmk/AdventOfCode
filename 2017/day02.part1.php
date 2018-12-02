@@ -1,9 +1,9 @@
 <?php
 
 $resolve = function (array $spreadsheet) : int {
-    return array_reduce($spreadsheet, function ($sum, $line) {
+    return array_reduce($spreadsheet, function (int $sum, array $line) : int {
         return $sum + (max($line) - min($line));
-    });
+    }, 0);
 };
 
 echo $resolve([

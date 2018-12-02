@@ -1,13 +1,15 @@
 <?php
 
 $resolve = function (array $spreadsheet) : int {
-    return array_reduce($spreadsheet, function ($sum, $line) {
+    return array_reduce($spreadsheet, function (int $sum, array $line) : int {
         foreach ($line as $op1) {
             foreach ($line as $op2) {
-                if ($op1 !== $op2 && $op1 % $op2 === 0) return $sum + ($op1 / $op2);
+                if ($op1 !== $op2 && $op1 % $op2 === 0) {
+                    return $sum + ($op1 / $op2);
+                }
             }
         }
-    });
+    }, 0);
 };
 
 echo $resolve([
