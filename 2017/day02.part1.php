@@ -10,7 +10,7 @@ echo $resolve([
     [5, 1, 9, 5],
     [7, 5, 3],
     [2, 4, 6, 8],
-]), "\n";
+]), "\n"; // 18
 
 echo $resolve(
     array_map(
@@ -19,4 +19,4 @@ echo $resolve(
         },
         file(__DIR__ . '/day02.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
     )
-), "\n";
+), "\n"; // 36766

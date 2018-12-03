@@ -21,8 +21,8 @@ echo $resolve([
     'fguij',
     'axcye',
     'wvxyz',
-]), "\n";
+]), "\n"; // fgij
 
 echo $resolve(
     file(__DIR__ . '/day02.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
-), "\n";
+), "\n"; // wrziyfdmlumeqvaatbiosngkc
