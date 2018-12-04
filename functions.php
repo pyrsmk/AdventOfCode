@@ -40,6 +40,29 @@ function array_intersect_strict(array $array1, array $array2) : array {
     }, []);
 }
 
+function array_fill_multi(int $dimensions, int $size, $value) : array {
+    $create = function (int $dimension, int $size, $value) use (&$create, $dimensions) : array {
+        $array = [];
+        foreach (range(1, $size) as $i) {
+            if ($dimension < $dimensions) {
+                $array[] = $create($dimension + 1, $size, $value);
+            } else {
+                $array[] = $value;
+            }
+        }
+        return $array;
+    };
+    return $create(1, $size, $value);
+}
+
 function glue(array $array) : string {
     return implode('', $array);
+}
+
+function is_even(int $value) : bool {
+    return $value % 2 === 0;
+}
+
+function is_odd(int $value) : bool {
+    return $value % 2 !== 0;
 }
