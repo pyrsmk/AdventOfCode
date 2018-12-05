@@ -1,14 +1,16 @@
 <?php
 
+require __DIR__ . '/../functions.php';
+
 $resolve = function (array $passphrases) : int {
-    return array_reduce($passphrases, function (int $valid, string $passphrase) : int {
-        return $valid + (int) array_reduce(
-            $phrases = explode(' ', $passphrase),
-            function (bool $valid, string $phrase) use ($phrases) : bool {
-                return $valid && count(array_keys($phrases, $phrase)) < 2;
-            },
-            true
-        );
+    return array_reduce($passphrases, function (int $count, string $passphrase) : int {
+        $words = explode(' ', $passphrase);
+        foreach ($words as $word) {
+            if (count(array_keys($words, $word)) > 1) {
+                return $count;
+            }
+        }
+        return $count + 1;
     }, 0);
 };
 
