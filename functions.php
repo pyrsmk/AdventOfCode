@@ -55,6 +55,61 @@ function array_fill_multi(int $dimensions, int $size, $value) : array {
     return $create(1, $size, $value);
 }
 
+function array_sort(array $array, int $flags = SORT_REGULAR) : array {
+    sort($array, $flags);
+    return $array;
+}
+
+function array_asort(array $array, int $flags = SORT_REGULAR) : array {
+    asort($array, $flags);
+    return $array;
+}
+
+function array_arsort(array $array, int $flags = SORT_REGULAR) : array {
+    arsort($array, $flags);
+    return $array;
+}
+
+function array_rsort(array $array, int $flags = SORT_REGULAR) : array {
+    rsort($array, $flags);
+    return $array;
+}
+
+function array_ksort(array $array, int $flags = SORT_REGULAR) : array {
+    ksort($array, $flags);
+    return $array;
+}
+
+function array_krsort(array $array, int $flags = SORT_REGULAR) : array {
+    krsort($array, $flags);
+    return $array;
+}
+
+function array_usort(array $array, callable $compare) : array {
+    usort($array, $compare);
+    return $array;
+}
+
+function array_uksort(array $array, callable $compare) : array {
+    uksort($array, $compare);
+    return $array;
+}
+
+function array_uasort(array $array, callable $compare) : array {
+    uasort($array, $compare);
+    return $array;
+}
+
+function array_natsort(array $array) : array {
+    natsort($array);
+    return $array;
+}
+
+function array_natcasesort(array $array) : array {
+    natcasesort($array);
+    return $array;
+}
+
 function glue(array $array) : string {
     return implode('', $array);
 }

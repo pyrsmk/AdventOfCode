@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../functions.php';
+
 $resolve = function (array $spreadsheet) : int {
     return array_reduce($spreadsheet, function (int $sum, array $line) : int {
         foreach ($line as $op1) {

@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../functions.php';
+
 $resolve = function (array $frequencies) : int {
     return array_sum($frequencies);
 };

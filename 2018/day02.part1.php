@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../functions.php';
+
 $resolve = function (array $ids) : int {
     $count = function (int $number) use ($ids) : int {
         return array_reduce($ids, function (int $count, string $id) use ($number) : int {
