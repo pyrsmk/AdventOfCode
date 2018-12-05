@@ -1,9 +1,7 @@
 <?php
 
 $resolve = function (array $frequencies) : int {
-    return array_reduce($frequencies, function (int $sum, string $frequency) : int {
-        return $sum + $frequency;
-    }, 0);
+    return array_sum($frequencies);
 };
 
 echo $resolve(['+1', '+1', '+1']), "\n"; // 3
