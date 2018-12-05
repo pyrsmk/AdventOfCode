@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../functions.php';
+
 $resolve = function (string $captcha, int $v = 1) : int {
     $sum = 0;
     foreach (str_split($captcha) as $i => $digit) {
