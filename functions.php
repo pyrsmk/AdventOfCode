@@ -110,6 +110,29 @@ function array_natcasesort(array $array) : array {
     return $array;
 }
 
+function seek(array &$array, $key) : void {
+    reset($array);
+    while(key($array) !== $key) {
+        if (next($array) === false) {
+            throw new Exception("'$key' key not found");
+        }
+    }
+}
+
+function kmin($array) {
+    return array_search(
+        min($array),
+        $array
+    );
+}
+
+function kmax($array) {
+    return array_search(
+        max($array),
+        $array
+    );
+}
+
 function glue(array $array) : string {
     return implode('', $array);
 }
@@ -120,4 +143,26 @@ function is_even(int $value) : bool {
 
 function is_odd(int $value) : bool {
     return $value % 2 !== 0;
+}
+
+function regex_test(string $pattern, string $text, int $flags = 0) : bool {
+    return (bool) preg_match($pattern, $text, $matches, $flags);
+}
+
+function regex_count(string $pattern, string $text, int $flags = 0) : int {
+    return (int) preg_match($pattern, $text, $matches, $flags);
+}
+
+function regex_match(string $pattern, string $text, int $flags = 0) : array {
+    if (!preg_match($pattern, $text, $matches, $flags)) {
+        throw new Exception("'$pattern' has no match");
+    }
+    return $matches;
+}
+
+function match_all(string $pattern, string $text, int $flags = 0) : array {
+    if (!preg_match_all($pattern, $text, $matches, $flags)) {
+        throw new Exception("'$pattern' has no match");
+    }
+    return $matches;
 }
