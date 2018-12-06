@@ -3,7 +3,7 @@
 require __DIR__ . '/../functions.php';
 
 $resolve = function (array $claims) : int {
-    $fabric = array_fill_multi(2, 1000, '.');
+    $fabric = array_fill_multi(2, 1000, null);
     $ids = [];
     $overlaps = [];
     foreach ($claims as $claim) {
@@ -11,10 +11,10 @@ $resolve = function (array $claims) : int {
         $ids[] = $matches[1];
         foreach (range($matches[3], $matches[3] + $matches[5] - 1) as $y) {
             foreach (range($matches[2], $matches[2] + $matches[4] - 1) as $x) {
-                if ($fabric[$y][$x] !== '.') {
-                    if (!in_array($fabric[$y][$x], $overlaps)) $overlaps[] = $fabric[$y][$x];
-                    if (!in_array($matches[1], $overlaps)) $overlaps[] = $matches[1];
-                };
+                if (isset($fabric[$y][$x])) {
+                    $overlaps[] = $fabric[$y][$x];
+                    $overlaps[] = $matches[1];
+                }
                 $fabric[$y][$x] = $matches[1];
             }
         }

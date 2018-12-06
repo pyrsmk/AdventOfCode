@@ -3,14 +3,14 @@
 require __DIR__ . '/../functions.php';
 
 $resolve = function (array $frequencies) : int {
-    $reached = [$sum = 0];
+    $reached[$sum = 0] = true;
     while (true) {
         foreach ($frequencies as $frequency) {
             $sum += $frequency;
-            if (in_array($sum, $reached)) {
+            if (isset($reached[$sum])) {
                 return $sum;
             }
-            $reached[] = $sum;
+            $reached[$sum] = true;
         }
     }
 };

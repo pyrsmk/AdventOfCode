@@ -3,18 +3,18 @@
 require __DIR__ . '/../functions.php';
 
 $resolve = function (array $claims) : int {
-    $fabric = array_fill_multi(2, 1000, '.');
+    $fabric = array_fill_multi(2, 1000, 0);
     foreach ($claims as $claim) {
         preg_match('/^#(\d+) @ (\d+),(\d+): (\d+)x(\d+)$/', $claim, $matches);
         foreach (range($matches[3], $matches[3] + $matches[5] - 1) as $y) {
             foreach (range($matches[2], $matches[2] + $matches[4] - 1) as $x) {
-                $fabric[$y][$x] = $fabric[$y][$x] === '.' ? $matches[1] : 'X';
+                $fabric[$y][$x] += 1;
             }
         }
     }
     return array_reduce($fabric, function ($inches, $line) {
         return $inches + array_reduce($line, function ($inches, $square) {
-            return $inches + ($square === 'X' ? 1 : 0);
+            return $inches + (int) ($square > 1);
         }, 0);
     }, 0);
 };
