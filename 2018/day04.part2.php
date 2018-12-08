@@ -72,4 +72,4 @@ echo $resolve([
 
 echo $resolve(
     file(__DIR__ . '/day04.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
-), "\n"; // ???
+), "\n"; // 14920

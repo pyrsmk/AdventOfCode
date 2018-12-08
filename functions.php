@@ -19,6 +19,11 @@ function array_kvreduce(array $array, callable $callback, $initial = null)
     return $carry;
 }
 
+function array_kvmap(array $array, callable $callback) : array
+{
+    return array_map($callback, array_keys($array), $array);
+}
+
 function array_diff_strict(array $array1, array $array2) : array
 {
     if (count($array1) !== count($array2)) {
