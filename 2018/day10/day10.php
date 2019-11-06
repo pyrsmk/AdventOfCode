@@ -234,5 +234,5 @@ $resolve([
 ]); // HI
 
 $resolve(
-    file(__DIR__ . '/day10.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
+    file(__DIR__ . '/puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
 ); // LRCXFXRP

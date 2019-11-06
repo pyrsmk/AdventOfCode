@@ -38,6 +38,6 @@ echo $resolve([
 ], 32), "\n"; // 16
 
 echo $resolve(
-    file(__DIR__ . '/day06.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES),
+    file(__DIR__ . '/puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES),
     10000
 ), "\n"; // 46306

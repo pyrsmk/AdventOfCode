@@ -41,6 +41,6 @@ echo $resolve('dabAcCaCBAcCcaDA'), "\n"; // 4
 
 echo $resolve(
     trim(
-        file_get_contents(__DIR__ . '/day05.puzzle.txt')
+        file_get_contents(__DIR__ . '/puzzle.txt')
     )
 ), "\n"; // 6650

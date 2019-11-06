@@ -19,5 +19,5 @@ echo $resolve('123123'), "\n"; // 12
 echo $resolve('12131415'), "\n"; // 4
 
 echo $resolve(
-    trim(file_get_contents(__DIR__ . '/day01.puzzle.txt'))
+    trim(file_get_contents(__DIR__ . '/puzzle.txt'))
 ), "\n"; // 1348
