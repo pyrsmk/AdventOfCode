@@ -28,6 +28,6 @@ echo $resolve('dabAcCaCBAcCcaDA'), "\n"; // 10
 
 echo $resolve(
     trim(
-        file_get_contents(__DIR__ . '/day05.puzzle.txt')
+        file_get_contents(__DIR__ . '/puzzle.txt')
     )
 ), "\n"; // 10804

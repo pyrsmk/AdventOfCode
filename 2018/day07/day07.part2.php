@@ -111,7 +111,7 @@ echo $resolve([
 ], 2, 0), "\n"; // 15
 
 echo $resolve(
-    file(__DIR__ . '/day07.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES),
+    file(__DIR__ . '/puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES),
     5,
     60
 ), "\n"; // 828

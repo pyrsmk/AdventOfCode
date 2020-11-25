@@ -8,7 +8,7 @@
  * @param integer $length
  * @return array
  */
-function array_drop(array $array, int $offset, int $length) : array
+function array_drop(array $array, int $offset, int $length = 1) : array
 {
     array_splice($array, $offset, $length);
     return $array;
@@ -33,14 +33,49 @@ function array_substitute(array $array, int $offset, int $length, array $replace
 }
 
 /**
+ * Rotate an array
+ *
+ * @param array $array
+ * @param integer $notches
+ * @return array
+ */
+function array_rotate(array $array, int $notches) : array
+{
+    if ($notches === abs($notches)) {
+        foreach (range(1, $notches) as $i) {
+            array_push($array, array_shift($array));
+        }
+    } else {
+        foreach (range(1, abs($notches)) as $i) {
+            array_unshift($array, array_pop($array));
+        }
+    }
+    return $array;
+}
+
+/**
+ * Insert a value at a specified offset
+ *
+ * @param array $array
+ * @param integer $offset
+ * @param mixed $value
+ * @return array
+ */
+function array_insert(array $array, int $offset, $value) : array
+{
+    array_splice($array, $offset, 0, [$value]);
+    return $array;
+}
+
+/**
  * array_reduce with key/value support
  *
  * @param array $array
  * @param callable $callback
  * @param mixed $initial
- * @return void
+ * @return array
  */
-function array_kvreduce(array $array, callable $callback, $initial = null)
+function array_kvreduce(array $array, callable $callback, $initial = null) : array
 {
     $carry = $initial;
     foreach ($array as $key => $value) {
@@ -272,6 +307,24 @@ function array_natcasesort(array $array) : array
 {
     natcasesort($array);
     return $array;
+}
+
+/**
+ * Find the circular offset in an array
+ *
+ * @param array $array
+ * @param integer $offset
+ * @return integer
+ */
+function array_circular_offset(array $array, int $offset) : int
+{
+    if ($offset >= count($array)) {
+        return $offset % count($array);
+    } else if ($offset < 0) {
+        return count($array) - (abs($offset) % count($array));
+    } else {
+        return $offset;
+    }
 }
 
 /**

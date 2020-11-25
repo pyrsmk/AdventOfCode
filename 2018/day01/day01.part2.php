@@ -21,5 +21,5 @@ echo $resolve(['-6', '+3', '+8', '+5', '-6']), "\n"; // 5
 echo $resolve(['+7', '+7', '-2', '-7', '-4']), "\n"; // 14
 
 echo $resolve(
-    file(__DIR__ . '/day01.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
+    file(__DIR__ . '/puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
 ), "\n"; // 452

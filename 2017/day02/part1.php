@@ -19,6 +19,6 @@ echo $resolve(
         function ($line) {
             return preg_split('/\s+/', $line);
         },
-        file(__DIR__ . '/day02.puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
+        file(__DIR__ . '/puzzle.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)
     )
 ), "\n"; // 36766
