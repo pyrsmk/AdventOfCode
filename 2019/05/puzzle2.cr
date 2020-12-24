@@ -579,6 +579,8 @@ it {
 
 contents = File.read("#{__DIR__}/input.txt")
 
+puts "---".colorize(:magenta)
 program = Program.new(contents)
 computer = Computer.new(program, input: 5)
 computer.process
+puts "---".colorize(:magenta)
